@@ -1,14 +1,12 @@
 7. OLD PRICE (attribute)
 Composite
 Multi-valued
+How does a SHOP track an ITEM's OLDPRICE?
 
 8. CONTRACT (Entity)
 Key:ctid
 DEALERs may have CONTRACTs (single line betw/ DEALER and HAVE, (1,10) betw/ HAVE and CONTRACT)
 but CONTRACTs must have DEALERs (double line betw/ HAVE and CONTRACT, (0,10) betw/ DEALER and HAVE)
-
-
-
 
 9. address (attribute)
 completed
@@ -22,13 +20,16 @@ CUSTOMERs can BUY between 1 and N ITEMs
 
 
 
-
-
-
 Questions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-8. 
+7.
+How does a SHOP track an ITEM's OLDPRICE?
+
+8.
 What does "will have a contract ID (ctid) of 0 to 10" mean?
 Is ctid a key attribute?
+
+10.
+Do we need the ORDERED_FROM relationship? 
 
 11.
 How should the double lines work for CUSTOMER BUYS?
