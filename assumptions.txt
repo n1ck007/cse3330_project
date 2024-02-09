@@ -1,4 +1,3 @@
 1. A given ITEM type is only supplied by exactly one DEALER
-2. A given ITEM type can be contained in 0 to N orders. 
-    (Because it makes sense that different people could want to the same item)
-3. 
+2. A given ITEM type can be contained in 0 to N orders. (Different people may want to order the same item)
+3. There should be a relationship between OLDPRICE and ITEM.
