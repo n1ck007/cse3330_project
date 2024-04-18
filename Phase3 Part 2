@@ -37,5 +37,5 @@ FROM ItemView;
 
 -- Q4 
 SELECT itemName, ItemCustomers
-from itemview6
+from itemview
 ORDER BY ItemCustomers;
