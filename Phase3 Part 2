@@ -29,3 +29,12 @@ SELECT
 	CONCAT('$', FORMAT(MAX(ItemRevenue), 2)) AS `MaxItemRevenue`,
 	CONCAT('$', FORMAT(AVG(ItemRevenue), 2)) AS `AvgItemRevenue`
 FROM ItemView;
+
+-- Q4
+
+-- Q5
+SELECT
+    CONCAT('$', FORMAT(SUM(ItemRevenue), 2)) AS `TotalRevenue`,
+    SUM(NoOfBoxes) AS `TotalNoOfBoxes`,
+    CONCAT('$', FORMAT(SUM(ItemRevenue) / SUM(NoOfBoxes), 2)) AS `AvgRevenue/Box`
+FROM ItemView;
