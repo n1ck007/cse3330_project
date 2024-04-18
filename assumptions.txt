@@ -1,3 +1,0 @@
-1.	An ITEM can be supplied by more than DEALER.
-2.	An ITEM can be contained in 0 to N orders.
-3.	There should be a relationship between OLDPRICE and ITEM.
