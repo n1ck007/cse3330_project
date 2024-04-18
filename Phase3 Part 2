@@ -22,6 +22,10 @@ Where itemprice >= 3 and NoOfBoxes >= 1
 
 
 -- Q2
+SELECT itemName,
+	CONCAT('$', FORMAT(MIN(ItemRevenue), 2)) AS `MinItemRevenue`
+FROM ItemView6
+GROUP BY itemName;
 
 -- Q3
 SELECT
