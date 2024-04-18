@@ -1,6 +1,5 @@
 
-table view creation
-
+-- table view creation
 CREATE VIEW ItemView
 AS SELECT 
     i.iId,
@@ -16,9 +15,17 @@ WHERE i.iId = s.iId
 GROUP BY i.iId;
 
 
-Problem 1 
-
-
+-- Problem 1 
 SELECT  iId,itemName,NoOfBoxes,CONCAT('$', FORMAT(itemprice, 2)) AS 'itemprice'
 FROM `itemview`
 Where itemprice >= 3 and NoOfBoxes >= 1
+
+
+-- Q2
+
+-- Q3
+SELECT
+	CONCAT('$', FORMAT(MIN(ItemRevenue), 2)) AS `MinItemRevenue`,
+	CONCAT('$', FORMAT(MAX(ItemRevenue), 2)) AS `MaxItemRevenue`,
+	CONCAT('$', FORMAT(AVG(ItemRevenue), 2)) AS `AvgItemRevenue`
+FROM ItemView;
