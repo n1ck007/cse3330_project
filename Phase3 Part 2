@@ -17,14 +17,14 @@ GROUP BY i.iId;
 
 -- Q1
 SELECT  iId,itemName,NoOfBoxes,CONCAT('$', FORMAT(itemprice, 2)) AS 'itemprice'
-FROM `itemview`
+FROM `Itemview`
 Where itemprice >= 3 and NoOfBoxes >= 1
 
 
 -- Q2
 SELECT itemName,
 	CONCAT('$', FORMAT(MIN(ItemRevenue), 2)) AS `MinItemRevenue`
-FROM ItemView6
+FROM ItemView
 GROUP BY itemName;
 
 -- Q3
@@ -37,5 +37,5 @@ FROM ItemView;
 
 -- Q4 
 SELECT itemName, ItemCustomers
-from itemview
+from Itemview
 ORDER BY ItemCustomers;
