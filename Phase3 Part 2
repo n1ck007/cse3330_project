@@ -1,0 +1,16 @@
+
+table view creation
+
+CREATE VIEW ItemView
+AS SELECT 
+i.iId,
+i.Iname as itemName,
+p.Amount as NoOfBoxes,
+CONCAT('$', FORMAT(i.Sprice, 2)) AS 'itemprice',
+CONCAT('$', FORMAT((p.Amount* i.Sprice), 2)) AS 'ItemRevenue',
+COUNT(DISTINCT p.cId) AS ItemCustomers
+FROM item i 
+INNER JOIN order_item s ON i.iId = s.iId  -- Join item table with order_item on item ID
+INNER JOIN orders p ON p.oId = s.oId
+WHERE i.iId = s.iId
+GROUP BY i.iId;
