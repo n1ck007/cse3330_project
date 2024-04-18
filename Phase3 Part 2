@@ -15,7 +15,7 @@ WHERE i.iId = s.iId
 GROUP BY i.iId;
 
 
--- Problem 1 
+-- Q1
 SELECT  iId,itemName,NoOfBoxes,CONCAT('$', FORMAT(itemprice, 2)) AS 'itemprice'
 FROM `itemview`
 Where itemprice >= 3 and NoOfBoxes >= 1
@@ -29,3 +29,9 @@ SELECT
 	CONCAT('$', FORMAT(MAX(ItemRevenue), 2)) AS `MaxItemRevenue`,
 	CONCAT('$', FORMAT(AVG(ItemRevenue), 2)) AS `AvgItemRevenue`
 FROM ItemView;
+
+
+-- Q4 
+SELECT itemName, ItemCustomers
+from itemview6
+ORDER BY ItemCustomers;
