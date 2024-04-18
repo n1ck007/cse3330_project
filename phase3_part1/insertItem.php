@@ -5,14 +5,14 @@ require './Service.php';
 $service = new Service();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    $result = $service->deleteItem();
+    $result = $service->addItem();
 }
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>Delete Item</title>
+<title>Insert Item</title>
     </head>
     <body>
         <br>
@@ -23,13 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         <a href="deleteItem.php">Delete Item</a>
 
         <form method="post">
-        <fieldset><legend>Delete Item</legend>
+        <fieldset><legend>Insert Item</legend>
 
-            <input type="text" name="iId" placeholder="ID"></br> 
+            <input type="text" name="Iname" placeholder="Name" ></br>
+            <input type="text" name="Sprice" placeholder="Price" ></br>
             <input id="button" type="submit" name="submit">
-
+            
         </fieldset>
 
     </body>
-    
+
 </html>

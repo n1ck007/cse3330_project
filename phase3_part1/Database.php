@@ -5,7 +5,7 @@ class Database {
 	public function getDatabaseConnection(){
 
 		$dbHost = "localhost:3306";
-		$dbName = "cse3330_projectdb"; // this should be the name of the database you create XAMPP
+		$dbName = "db_phase3"; // this should be the name of the database you create XAMPP
 		$dbUser = "root";
 		$dbPassword = "";
 

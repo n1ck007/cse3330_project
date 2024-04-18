@@ -1,22 +1,16 @@
 <?php
+
 require './Service.php';
 $service = new Service();
-$items = $service->fetchAllItems();
+$items = $service->findItem();
+
 ?>
 
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../static/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+<title>Find Item</title>
 </head>
-
 <body>
     <br>
     <a href="index.php">Index</a>
@@ -24,14 +18,21 @@ $items = $service->fetchAllItems();
     <a href="insertItem.php">Insert Item</a>
     <a href="updateItem.php">Update Item</a>
     <a href="deleteItem.php">Delete Item</a>
+    
+    <form action='searchResult.php' method="post">
+    <fieldset><legend>Search Item</legend>
+        <input type='text' name='iId' placeholder='ID'>
+        <input id='buttom' type='submit' name='submit'>
+    </fieldset>
 
-    <fieldset><legend>All Items</legend>
-        <table>
+    <fieldset><legend>Search Results</legend>
+
+	    <table>
             <thead>
                 <tr>
-                    <th>iId</th>
-                    <th>Iname</th>
-                    <th>Sprice</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,7 +46,5 @@ $items = $service->fetchAllItems();
             </tbody>
         </table>
     </fieldset>
-
 </body>
-
 </html>

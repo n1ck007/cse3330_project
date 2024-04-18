@@ -6,7 +6,6 @@ require './Item.php';
 class Service {
 
     function fetchAllItems() {
-		
 		$dbObject = new Database();
 		$dbConnection = $dbObject->getDatabaseConnection();
 
@@ -22,23 +21,42 @@ class Service {
 		}
 	}
 
-    // function addStudent() {
-    //     $name = $_POST['name'];
-    //     $math = $_POST['math'];
+    function findItem() {
+        
+        $iId = $_POST['iId'];
 
-    //     $dbObject = new Database();
-	// 	$dbConnection = $dbObject->getDatabaseConnection();
+        $dbObject = new Database();
+		$dbConnection = $dbObject->getDatabaseConnection();
 
-    //     $sql = "INSERT INTO students (`name`,`math`) VALUES (?,?)";
+        $sql = "SELECT * FROM item WHERE iId=" . $iId;
 
-	// 	$stmt = $dbConnection->prepare($sql);
-    //     //var_dump($stmt);
-    //     if ($stmt->execute([$name, $math])) {
-    //         // The primary key value will be auto-incremented by the database
-    //     } else {
-    //         return 'Failed';  
-    //     }
-    // }
+        $stmt = $dbConnection->prepare($sql);
+		$stmt->setFetchMode(PDO::FETCH_CLASS, 'Item');
+
+        if ($stmt->execute()){
+			return $stmt->fetchAll();
+		} else{
+			return 'Failed';
+		}
+    }
+
+    function addItem() {
+        $Iname = $_POST['Iname'];
+        $Sprice = $_POST['Sprice'];
+
+        $dbObject = new Database();
+		$dbConnection = $dbObject->getDatabaseConnection();
+
+        $sql = "INSERT INTO item (`Iname`,`Sprice`) VALUES (?,?)";
+
+		$stmt = $dbConnection->prepare($sql);
+
+        if ($stmt->execute([$Iname, $Sprice])) {
+            // The primary key value will be auto-incremented by the database
+        } else {
+            return 'Failed';  
+        }
+    }
 
     function deleteItem() {
         $iId = $_POST['iId'];
@@ -46,11 +64,9 @@ class Service {
         $dbObject = new Database();
 		$dbConnection = $dbObject->getDatabaseConnection();
 
-        $sql = "DELETE FROM item WHERE iId=" .$iId;
+        $sql = "DELETE FROM item WHERE iId=" . $iId; 
 
-        echo $sql;
 		$stmt = $dbConnection->query($sql);
-        //echo "DELETED STUDENT";
     }
 
     function updateItem() {
@@ -62,7 +78,6 @@ class Service {
 		$dbConnection = $dbObject->getDatabaseConnection();
 
         $sql = "UPDATE item SET Iname='" . $Iname ."', Sprice=". $Sprice ." WHERE iId=". $iId;
-        echo $sql;
         $stmt = $dbConnection->query($sql); 
     }
 }

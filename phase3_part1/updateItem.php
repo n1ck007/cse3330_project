@@ -16,20 +16,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     </head>
     <body>
         <br>
-        <a href="index.php">Index Page</a>
+        <a href="index.php">Index</a>
+        <a href="findItem.php">Find Item</a>
+        <a href="insertItem.php">Insert Item</a>
         <a href="updateItem.php">Update Item</a>
         <a href="deleteItem.php">Delete Item</a>
+
         <form method="post">
-        <fieldset>
-            <legend>Update Item</legend>
+        <fieldset><legend>Update Item</legend>
 
             <input type="text" name="iId" placeholder="ID"></br>
-
             <input type="text" name="Iname" placeholder="Name" ></br>
-
             <input type="text" name="Sprice" placeholder="Price" ></br>
-
             <input id="button" type="submit" name="submit">
+
         </fieldset>
+
     </body>
+    
 </html>
