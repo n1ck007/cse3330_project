@@ -1,4 +1,3 @@
-
 -- table view creation
 CREATE VIEW ItemView
 AS SELECT 
@@ -15,13 +14,18 @@ WHERE i.iId = s.iId
 GROUP BY i.iId;
 
 
--- Problem 1 
+-- Q1
 SELECT  iId,itemName,NoOfBoxes,CONCAT('$', FORMAT(itemprice, 2)) AS 'itemprice'
-FROM `itemview`
+FROM `Itemview`
 Where itemprice >= 3 and NoOfBoxes >= 1
 
 
 -- Q2
+SELECT itemName,
+	CONCAT('$', FORMAT(MIN(ItemRevenue), 2)) AS `MinItemRevenue`
+FROM ItemView
+GROUP BY itemName;
+
 
 -- Q3
 SELECT
@@ -30,7 +34,12 @@ SELECT
 	CONCAT('$', FORMAT(AVG(ItemRevenue), 2)) AS `AvgItemRevenue`
 FROM ItemView;
 
--- Q4
+
+-- Q4 
+SELECT itemName, ItemCustomers
+from Itemview
+ORDER BY ItemCustomers;
+
 
 -- Q5
 SELECT
